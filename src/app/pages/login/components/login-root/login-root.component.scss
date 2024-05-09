@@ -1,0 +1,41 @@
+.page {
+  height: 100%;
+  width: 100%;
+  background-color: #fb8e63;
+  display: flex;
+  align-items: center;
+}
+
+.login-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  margin: auto;
+  width: 568px;
+  height: 712px;
+  background-color: #ffffff;
+
+  @media screen and (max-width: 470px) {
+    width: 90%;
+    height: 610px;
+    background-color: #ffffff;
+    @media screen and (max-width: 380px) {
+    width: 95%;
+    }
+  }
+}
+
+.logo-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 324px;
+
+  @media screen and (max-width: 470px) {
+    height: 280px;
+    width: 280px;
+  }
+}

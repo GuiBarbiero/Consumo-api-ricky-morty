@@ -1,0 +1,44 @@
+.card{
+  margin: 20px 10px 20px 10px;
+  width: 279px;
+  min-height: 520px;
+  box-sizing: border-box;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-name {
+  display: block;
+  color: #000;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.card-species{
+  display: block;
+  margin-bottom: 40px;
+}
+
+.status-circle{
+  height: 10px;
+  width: 8px;
+  margin-left: 5px;
+  border-radius: 60%;
+  display: inline-block;
+}
+
+.btn-primary{
+  width: 50%;
+}

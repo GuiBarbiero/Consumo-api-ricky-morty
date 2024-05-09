@@ -1,0 +1,59 @@
+<section class="character-details-container">
+  <!-- Header section -->
+  <header class="character-details-header d-flex justify-content-between">
+    <div class="character-details-title-container">
+      <!-- Character name -->
+      <h1 class="character-details-title-text">{{character?.name}}</h1>
+
+      <!-- Favorite icon (border) - displayed when not favorited -->
+      <div class="favorite-icon" *ngIf="character && !favorite" (click)="onFavorite()">
+        <mat-icon class="character-details-icon">favorite_border</mat-icon>
+      </div>
+
+      <!-- Favorite icon (filled) - displayed when favorited -->
+      <div class="favorite-icon" *ngIf="character && favorite" (click)="onFavorite()">
+        <mat-icon class="character-details-icon">favorite</mat-icon>
+      </div>
+
+      <!-- Character species -->
+      <h5>
+        {{character?.species}}
+      </h5>
+
+      <!-- Character status -->
+      <h5>
+        {{character?.status}}
+      </h5>
+    </div>
+
+    <!-- Container for character image -->
+    <div class="character-image-container">
+      <!-- Character image -->
+      <img class="character-image" src="{{character?.image}}" alt="" srcset="">
+    </div>
+  </header>
+
+  <!-- Body section -->
+  <main>
+    <div>
+      <h1>Origem</h1>
+      {{character?.origin?.name}}
+    </div>
+    <div>
+      <h1>Ultima localização</h1>
+      {{character?.location?.name}}
+    </div>
+    <div>
+      <h1>Episódios</h1>
+      <p>Primeira Aparição: {{firstEpisode?.name}} - {{firstEpisode?.episode}} - {{firstEpisode?.air_date}} </p>
+      <p>Ultima Aparição: {{finalEpisode?.name}} - {{finalEpisode?.episode}} - {{finalEpisode?.air_date}} </p>
+    </div>
+  </main>
+
+  <!-- Footer section -->
+  <footer class="d-flex justify-content-center" id="character-footer">
+    <button class="character-back-button" (click)="onClick()">Voltar</button>
+    <!-- Button to navigate back -->
+    <!-- Footer content of the component goes here, if needed -->
+  </footer>
+</section>

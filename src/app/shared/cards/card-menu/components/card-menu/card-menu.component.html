@@ -1,0 +1,31 @@
+<div class="card" style="width: 18rem;">
+  <!-- Character Image with Conditional Grayscale -->
+  <img src="{{dataCard.image}}" class="card-img-top" [ngStyle]="{'filter': (dataCard.status == 'Dead') ? ' grayscale(100%)' : ' grayscale(0%)' }">
+
+  <div class="card-body">
+
+    <!-- Header Container: Name, Species, and Status -->
+    <div class="card-header-container">
+      <!-- Name & Specie -->
+      <div class="col-6">
+        <span class="card-name">
+          {{dataCard.name}}
+        </span>
+        <span class="card-species">{{dataCard.species}}</span>
+      </div>
+
+      <!-- Status -->
+      <div class="col-4">
+        <span>{{dataCard.status}}</span>
+        <!-- Status Circle with Conditional Background Color -->
+        <div class="status-circle" [ngStyle]="{'background-color': (dataCard.status == 'Dead') ? '#ff0000' : '#00ff00' }">
+        </div>
+      </div>
+    </div>
+
+    <!-- Button to View More Details -->
+    <div>
+      <button href="" class="btn btn-primary" (click)="onClick()">Mais</button>
+    </div>
+  </div>
+</div>

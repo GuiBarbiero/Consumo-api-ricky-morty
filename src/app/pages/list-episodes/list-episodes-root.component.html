@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <input
+    type="text"
+    class="form-control mb-3"
+    placeholder="Search Episodes"
+    (input)="onInputChange($event)"
+    [value]="searchTerm"
+  />
+
+  <div class="spinner-border" role="status" *ngIf="isLoading">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-4 mb-3" *ngFor="let episode of listFilteredEpisode">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ episode.name }}</h5>
+          <p class="card-text">
+            <strong>Episode:</strong> {{ episode.episode }}<br>
+            <strong>Air Date:</strong> {{ episode.air_date }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center my-4" *ngIf="isLoadingScroll">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center my-4">
+    <button
+    class="btn btn-primary me-2"
+    (click)="loadSpecificPage(1)"
+  >
+    Página 1
+  </button>
+    <button
+      class="btn btn-primary me-2"
+      (click)="loadSpecificPage(2)"
+    >
+      Página 2
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="loadSpecificPage(3)"
+    >
+      Página 3
+    </button>
+  </div>
+</div>

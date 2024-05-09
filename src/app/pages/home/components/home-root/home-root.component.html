@@ -1,0 +1,76 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Container for the sidebar and the main content -->
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <!-- Sidebar with dynamic settings based on screen width -->
+
+    <!-- Avatar Icon -->
+    <div class="d-flex justify-content-center">
+      <!-- Container for the avatar icon -->
+      <div class="user-pic">
+      </div>
+    </div>
+
+    <!-- Name User -->
+    <h1 class="user-name">Usuário</h1>
+    <!-- User name displayed in the sidebar -->
+
+    <!-- List Navigators -->
+    <mat-nav-list>
+      <!-- List of navigation links -->
+
+      <a mat-list-item class="list-container" [routerLink]="['/home/list-characters']">
+        <!-- Link to the list of characters -->
+        <mat-icon class="icon-list">home</mat-icon>
+        <!-- Icon for the home page -->
+        <span class="icon-title">Home</span>
+        <!-- Descriptive text for the home page -->
+      </a>
+
+      <a mat-list-item [routerLink]="['/home/list-favorite']" class="list-container">
+        <!-- Link to the list of favorites -->
+        <mat-icon class="icon-list">favorite</mat-icon>
+        <!-- Icon for the favorites page -->
+        <span class="icon-title">Favoritos</span>
+        <!-- Descriptive text for the favorites page -->
+      </a>
+
+      <a mat-list-item [routerLink]="['/home/list-episodes']" class="list-container">
+        <!-- Link to the list of episodes -->
+        <mat-icon class="icon-list">list</mat-icon>
+        <!-- Icon for the episodes page -->
+        <span class="icon-title">Episódios</span>
+        <!-- Descriptive text for the episodes page -->
+      </a>
+      
+    </mat-nav-list>
+
+    <!-- Exit Button -->
+    <button class="exit-button" (click)="onClick()">
+      <!-- Exit button with associated click function -->
+      <mat-icon>exit_to_app</mat-icon>
+      <!-- Exit icon -->
+    </button>
+
+  </mat-sidenav>
+
+  <!-- Content -->
+  <mat-sidenav-content>
+    <!-- Main content of the application -->
+
+    <mat-toolbar color="primary">
+      <!-- Toolbar with primary color -->
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <!-- Button to toggle the sidebar on mobile devices -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <!-- Icon for the sidebar toggle button -->
+      </button>
+    </mat-toolbar>
+
+    <!-- Content -->
+    <router-outlet></router-outlet>
+    <!-- Component to dynamically display content based on routes -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,21 @@
+<section class="list-container">
+
+
+  <!-- Cards Container -->
+  <div class="d-flex flex-row flex-wrap">
+    <div class="col-12 col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngFor="let item of listFilteredCharacters" id="cards-container" style="margin-top: 50px;">
+      <!-- Card component with data binding -->
+      <app-card-menu [dataCard]="item"></app-card-menu>
+    </div>
+  </div>
+
+  <!-- Error Page -->
+  <section class="d-flex justify-content-center" *ngIf="this.listFilteredCharacters.length == 0">
+    <!-- Displayed when the filtered list is empty (no search results) -->
+    <div>
+      <img src="../../../../../assets/empty-seach.png" style="margin-top: 10px;" alt="" srcset="">
+      <h1 style="text-align: center;">Nada Favoritado</h1>
+    </div>
+  </section>
+
+</section>
